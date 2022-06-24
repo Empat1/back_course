@@ -1,23 +1,25 @@
 package com.example.postgresql.controller;
 
-import com.example.postgresql.repository.ProductRepository;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.postgresql.model.Product.Product;
+import com.example.postgresql.model.Product.ProductDao;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/product")
 public class ProductController {
 
-    private final ProductRepository productRepository;
+    @Autowired
+    private ProductDao productDao;
 
-    public ProductController(ProductRepository productRepository) {
-        this.productRepository = productRepository;
+    @GetMapping("/product/get-all")
+    public List<Product> getAllProducts() {
+        return productDao.getAllEmployees();
     }
-    
-    @GetMapping
-    public ResponseEntity getAllProducts() {
-        return ResponseEntity.ok(this.productRepository.findAll());
+
+    @PostMapping("/product/save")
+    public Product save(@RequestBody Product product) {
+        return productDao.save(product);
     }
 }

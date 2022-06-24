@@ -1,9 +1,10 @@
 package com.example.postgresql.repository;
 
-import com.example.postgresql.model.Product.Product;
+
+import com.example.postgresql.model.User.Users;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ProductRepository extends CrudRepository<Product, Long> {
+public interface UserRepository extends CrudRepository<Users, Integer> {
 }
