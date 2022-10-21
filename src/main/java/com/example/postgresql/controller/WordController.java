@@ -19,6 +19,11 @@ public class WordController {
         return wordDao.getAllEmployees();
     }
 
+    @PostMapping("/word/save/{dictionary_id}") //не работает сохраниение слова в бд
+    public Word saveWord(@RequestBody Word word , @PathVariable("dictionary_id") int dictionary){
+        return this.wordDao.save( word , dictionary );
+    }
+
 //    @RequestMapping(value = "word/authorization/{language}/{dictionary}", method = RequestMethod.GET)
 //    public Word saveWord(@RequestBody Word word, @PathVariable("language") int language , @PathVariable("dictionary") int dictionary){
 //        return wordDao.getAuthorization(login , password);

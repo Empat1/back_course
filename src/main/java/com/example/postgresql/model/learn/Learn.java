@@ -17,6 +17,14 @@ public class Learn {
     private Date learn_last_repetion;
 
 
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
     public int getLearn_id() {
         return learn_id;
     }
@@ -42,11 +50,26 @@ public class Learn {
         this.learn_good_repetition = learn_good_repetition;
     }
 
+    public void incrementRepetition(){
+        learn_good_repetition++;
+    }
+
     public Date getLearn_last_repetion() {
         return learn_last_repetion;
     }
 
     public void setLearn_last_repetion(Date learn_last_repetion) {
         this.learn_last_repetion = learn_last_repetion;
+    }
+
+    @Override
+    public String toString() {
+        return "Learn{" +
+                "learn_id=" + learn_id +
+                ", user_id=" + user_id +
+                ", word_id=" + word_id +
+                ", learn_good_repetition=" + learn_good_repetition +
+                ", learn_last_repetion=" + learn_last_repetion +
+                '}';
     }
 }

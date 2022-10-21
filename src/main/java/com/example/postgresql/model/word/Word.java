@@ -22,6 +22,7 @@ public class Word{
 
     public void setDictionary(Dictionary dictionary) {
         this.dictionary = dictionary;
+        dictionary.getWords().add(this);
     }
 
     public int getWord_id() {
