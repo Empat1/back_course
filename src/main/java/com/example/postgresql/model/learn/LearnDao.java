@@ -1,14 +1,13 @@
 package com.example.postgresql.model.learn;
 
+import com.example.postgresql.model.word.Word;
 import com.example.postgresql.repository.LearnRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Streamable;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -24,7 +23,7 @@ public class LearnDao {
         return learns;
     }
 
-    public List<Learn> getCompleteWord(int userId ){
+    public List<Learn> getCompleteLern(int userId ){
         return Streamable.of(repository.findAll())
                 .stream()
                 .filter(learn -> learn.getLearn_good_repetition() > 0 )
@@ -32,6 +31,31 @@ public class LearnDao {
                 .collect(Collectors.toList());
     }
 
+
+    public Set<Integer> getWordId(int userId){
+        Set<Learn> learns = new HashSet<>();
+        Streamable.of(repository.findAll())
+                .stream()
+                .filter(learn -> learn.getUser_id() == userId)
+                .forEach(learns::add);
+
+        Set<Integer> ids = new HashSet<>();
+        for(Learn learn : learns){
+            ids.add(learn.getWord_id());
+        }
+
+        return ids;
+    }
+
+
+//    private List<Word> getCompleteWord(int userId){
+//        List<Word> words = new ArrayList<Word>();
+//        return
+//        for(Learn learn : getCompleteLern(userId)){
+//            Streamable.of(repository.findAllById(learn.getWord_id()));
+//        }
+//
+//    }
     public Learn getLearn(int userId , int wordId){
 
             return Streamable.of(repository.findAll())
@@ -76,7 +100,6 @@ public class LearnDao {
         if(good_repetition){
             upLearn.incrementRepetition();
         }
-
 
         return saveLearn(upLearn);
     }

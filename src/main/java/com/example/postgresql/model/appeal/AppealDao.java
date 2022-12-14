@@ -21,4 +21,20 @@ public class AppealDao {
         return appeals;
     }
 
+    public List<Appeal> getAllForUser(int user_id){
+        List<Appeal> appeals = new ArrayList<>();
+        Streamable.of(repository.findAll())
+                .filter(appeal -> appeal.getUser_id() == user_id)
+                .forEach(appeals::add);
+        return appeals;
+    }
+
+    public Appeal getAppeal(int appeal_id){
+        List<Appeal> appeals = new ArrayList<>();
+        Streamable.of(repository.findAll())
+                .filter(appeal -> appeal.getUser_id() == appeal_id)
+                .forEach(appeals::add);
+        return appeals.get(0);
+    }
+
 }

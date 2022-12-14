@@ -1,6 +1,7 @@
 package com.example.postgresql;
 
 
+import com.example.postgresql.controller.AppealController;
 import com.example.postgresql.controller.LearnController;
 import com.example.postgresql.controller.WordController;
 import com.example.postgresql.model.learn.Learn;
@@ -58,11 +59,28 @@ class PostgresqlApplicationTests {
 	}
 
 	@Test
+	void updateLearn(){
+		String str="2018-03-31";
+		Date date=Date.valueOf(str);
+
+		learnController.updateLearn(4 , 1 , date , false);
+	}
+
+
+
+	@Test
 	void getLearn(){
 		String str="2018-03-31";
 		Date date=Date.valueOf(str);
 
-		learnController.updateLearn(1 , 1 , date , false);
+		learnController.getLearn(1 , 1 );
+	}
+
+	@Autowired
+	AppealController appealController;
+	@Test
+	void getAppeal(){
+		appealController.getAll();
 	}
 
 

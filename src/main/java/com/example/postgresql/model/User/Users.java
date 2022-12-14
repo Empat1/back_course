@@ -31,8 +31,8 @@ public class Users {
 //    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 //    @JoinTable(name = "language" , joinColumns = @JoinColumn(name = "user_id") , inverseJoinColumns = @JoinColumn(name = "language_id"))
 
-    @ManyToMany
-    @JoinTable(name = "know", joinColumns = {@JoinColumn(name = "language_id")}, inverseJoinColumns = {@JoinColumn(name = "user_id")})
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "know", joinColumns = {@JoinColumn(name = "user_id")}, inverseJoinColumns = {@JoinColumn(name = "language_id")})
     private List<Language> languages;
 
     public List<Language> getLanguages() {

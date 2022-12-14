@@ -1,8 +1,8 @@
 package com.example.postgresql.model.word;
 
-import com.example.postgresql.model.User.Users;
 import com.example.postgresql.model.dictionary.Dictionary;
 import com.example.postgresql.model.dictionary.DictionaryDao;
+import com.example.postgresql.repository.LearnRepository;
 import com.example.postgresql.repository.WordRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Streamable;
@@ -18,6 +18,7 @@ public class WordDao {
     @Autowired
     private WordRepository repository;
 
+
     @Autowired
     DictionaryDao dictionaryDao;
 
@@ -32,7 +33,7 @@ public class WordDao {
         dictionaryDao.getAllEmployees().forEach(new Consumer<Dictionary>() {
             @Override
             public void accept(Dictionary dictionary) {
-                if(dictionary.getId_dictionary() == dictionaryId){
+                if(dictionary.getDictionary_id() == dictionaryId){
                     word.setDictionary(dictionary);
                 }
             }
@@ -40,5 +41,6 @@ public class WordDao {
 
         return repository.save(word);
     }
+
 
 }

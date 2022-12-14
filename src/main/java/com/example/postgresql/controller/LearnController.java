@@ -2,10 +2,8 @@ package com.example.postgresql.controller;
 
 import com.example.postgresql.model.learn.Learn;
 import com.example.postgresql.model.learn.LearnDao;
-import com.example.postgresql.model.word.WordDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import retrofit2.http.Path;
 
 import java.sql.Date;
 import java.util.List;
@@ -21,10 +19,16 @@ public class LearnController {
         return learnDao.getAllLearn();
     }
 
+//    @GetMapping("/learn/get-complete_word_size/{user_id}")
+//    public int getCompleteWordSize(@PathVariable("user_id") int userId){
+//
+//        return learnDao.getCompleteLern(userId).size();
+//    }
+
     @GetMapping("/learn/get-complete_word_size/{user_id}")
     public int getCompleteWord(@PathVariable("user_id") int userId){
 
-        return learnDao.getCompleteWord(userId).size();
+        return learnDao.getCompleteLern(userId).size();
     }
 
     @GetMapping("/learn/{user_id}/{word_id}")

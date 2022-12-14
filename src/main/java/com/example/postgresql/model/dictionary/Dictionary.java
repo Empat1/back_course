@@ -4,14 +4,13 @@ import com.example.postgresql.model.word.Word;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class Dictionary {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private int id_dictionary;
+    private int dictionary_id;
 
     @OneToMany(mappedBy = "dictionary" , fetch =  FetchType.LAZY , cascade = CascadeType.ALL)
     private List<Word> words;
@@ -26,12 +25,12 @@ public class Dictionary {
         this.words = words;
     }
 
-    public int getId_dictionary() {
-        return id_dictionary;
+    public int getDictionary_id() {
+        return dictionary_id;
     }
 
-    public void setId_dictionary(int id_dictionary) {
-        this.id_dictionary = id_dictionary;
+    public void setDictionary_idid(int dictionary_id) {
+        this.dictionary_id = dictionary_id;
     }
 
     public int getLanguage_id() {

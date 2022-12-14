@@ -14,7 +14,7 @@ public class Word{
     private int word_id;
 
     @ManyToOne(fetch = FetchType.LAZY , optional = false)
-    @JoinColumn(name ="id_dictionary" , nullable = false)
+    @JoinColumn(name ="dictionary_id" , nullable = false)
     private Dictionary dictionary;
     private String word_text;
     private String word_translate;

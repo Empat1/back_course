@@ -15,7 +15,7 @@ public class Appeal {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int appeal_id;
 
-    private int support_id;
+    private Integer support_id;
     private int user_id;
     private int appeal_type;
     private Date appeal_date;
@@ -30,11 +30,11 @@ public class Appeal {
         this.appeal_id = appeal_id;
     }
 
-    public int getSupport_id() {
+    public Integer getSupport_id() {
         return support_id;
     }
 
-    public void setSupport_id(int support_id) {
+    public void setSupport_id(Integer support_id) {
         this.support_id = support_id;
     }
 

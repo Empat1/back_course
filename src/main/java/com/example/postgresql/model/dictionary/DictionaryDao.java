@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class DictionaryDao {
@@ -30,7 +29,7 @@ public class DictionaryDao {
         List<Dictionary> dictionaries = new ArrayList<>();
         for(Dictionary dictionary : repository.findAll()){
             if (dictionary.getLanguage_id() == language_id)
-                if(dictionary.getId_dictionary() == dictionary_id){
+                if(dictionary.getDictionary_id() == dictionary_id){
                     return dictionary.getWords();
                 }
         }

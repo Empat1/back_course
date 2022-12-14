@@ -13,7 +13,7 @@ public class Learn {
     private int learn_id;
     private int user_id;
     private int word_id;
-    private int learn_good_repetition;
+    private Integer learn_good_repetition;
     private Date learn_last_repetion;
 
 
@@ -42,11 +42,11 @@ public class Learn {
         this.word_id = word_id;
     }
 
-    public int getLearn_good_repetition() {
+    public Integer getLearn_good_repetition() {
         return learn_good_repetition;
     }
 
-    public void setLearn_good_repetition(int learn_good_repetition) {
+    public void setLearn_good_repetition(Integer learn_good_repetition) {
         this.learn_good_repetition = learn_good_repetition;
     }
 
